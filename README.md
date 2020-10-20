@@ -1,3 +1,21 @@
+## Creating the dockerfile:
+
+```
+sudo docker build .
+```
+
+Then look for the returned image id and tag it:
+
+```
+> Successfully built b6c2c1247d47
+
+sudo docker tag b6c2c1247d47 milesmcbainqfes/qfes_osrm:latest
+
+sudo docker push milesmcbainqfes/qfes_osrm:latest
+
+```
+
+
 ## Open Source Routing Machine
 
 | Linux / macOS | Windows | Code Coverage |
