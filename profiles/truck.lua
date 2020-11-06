@@ -70,6 +70,7 @@ function setup()
       'motor_vehicle',
       'vehicle',
       'permissive',
+      'emergency',
       'designated',
       'hov',
       'psv'
@@ -79,7 +80,7 @@ function setup()
       'no',
       'agricultural',
       'forestry',
-      'emergency',
+      --'emergency',
       'customers',
       'private',
       'delivery',
