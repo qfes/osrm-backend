@@ -135,7 +135,8 @@ function setup()
       --'hov_lanes',
       'steps',
       'construction',
-      'proposed'
+      'proposed',
+      'ferry'
     },
 
     speeds = Sequence {
@@ -190,8 +191,8 @@ function setup()
     },
 
     route_speeds = {
-      ferry = 5,
-      shuttle_train = 10
+      ferry = 0,
+      shuttle_train = 0
     },
 
     bridge_speeds = {
