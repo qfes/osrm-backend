@@ -349,7 +349,27 @@ function WayHandlers.classes(profile,way,result,data)
         result.forward_classes["motorway"] = true
         result.backward_classes["motorway"] = true
     end
-end
+
+    if allowed_classes["proposed"] and data.highway == "proposed" then
+        result.forward_classes["proposed"] = true
+        result.backward_classes["proposed"] = true
+    end
+
+    if allowed_classes["construction"] and data.highway == "construction" then
+        result.forward_classes["construction"] = true
+        result.backward_classes["construction"] = true
+    end
+
+    if allowed_classes["construction"] then
+      local construction = way:get_value_by_key('construction')
+
+      -- Of course there are negative tags to handle, too
+      if construction and allowed_classes["construction"] and not profile.construction_whitelist[construction] then
+        result.forward_classes["construction"] = true
+        result.backward_classes["construction"] = true
+      end
+    end
+  end
 
 -- reduce speed on bad surfaces
 function WayHandlers.surface(profile,way,result,data)

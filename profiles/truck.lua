@@ -117,14 +117,15 @@ function setup()
     },
 
     classes = Sequence {
-        'toll', 'motorway', 'ferry', 'restricted', 'tunnel'
+        'toll', 'motorway', 'ferry', 'restricted', 'tunnel', 'construction', 'proposed'
     },
 
     -- classes to support for exclude flags
     excludable = Sequence {
         Set {'toll'},
         Set {'motorway'},
-        Set {'ferry'}
+        Set {'ferry'},
+        Set {'construction', 'proposed'}
     },
 
     avoid = Set {
@@ -134,8 +135,8 @@ function setup()
       'impassable',
       --'hov_lanes',
       'steps',
-      'construction',
-      'proposed',
+      -- 'construction',
+      -- 'proposed',
       'ferry'
     },
 
