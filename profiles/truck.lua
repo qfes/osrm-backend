@@ -40,7 +40,7 @@ function setup()
 
     -- Size of the vehicle, to be limited by physical restriction of the way
     vehicle_height = 3.8, -- in meters, 2.0m is the height slightly above biggest SUVs
-    vehicle_width = 2.5, -- in meters, ways with narrow tag are considered narrower than 2.2m
+    vehicle_width = 2.49, -- in meters, ways with narrow tag are considered narrower than 2.2m
 
     -- Size of the vehicle, to be limited mostly by legal restriction of the way
     vehicle_length = 7.7, -- in meters, 4.8m is the length of large or family car
@@ -146,14 +146,14 @@ function setup()
         motorway_link   = 45,
         trunk           = 70,
         trunk_link      = 35,
-        primary         = 55,
-        primary_link    = 25,
-        secondary       = 50,
+        primary         = 60,
+        primary_link    = 30,
+        secondary       = 55,
         secondary_link  = 25,
-        tertiary        = 40,
-        tertiary_link   = 20,
+        tertiary        = 50,
+        tertiary_link   = 25,
         unclassified    = 40,
-        residential     = 25,
+        residential     = 40,
         living_street   = 10,
         service         = 15
       }
