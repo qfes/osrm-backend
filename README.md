@@ -1,3 +1,13 @@
+## Useful resources
+https://wiki.openstreetmap.org/wiki/Map_features  
+https://wiki.openstreetmap.org/wiki/OSM_tags_for_routing/Maxspeed#Australia  
+https://github.com/Project-OSRM/osrm-backend/blob/master/docs/profiles.md#targetText=OSRM%20profiles,%2Fsafest%2Fgreenest%20bicycles%20profile.  
+https://github.com/rodo/osrm-profiles/blob/master/truck.lua#L132  
+https://github.com/Project-OSRM/osrm-profiles-contrib/blob/master/5/21/truck-soft/car.lua  
+https://www.qfes.qld.gov.au/buildingsafety/referral-agency-advice/documents/BFS-FireHydrant.pdf  
+
+
+
 ## Creating the dockerfile:
 
 ```
