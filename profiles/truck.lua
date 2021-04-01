@@ -40,7 +40,7 @@ function setup()
 
     -- Size of the vehicle, to be limited by physical restriction of the way
     vehicle_height = 3.8, -- in meters, 2.0m is the height slightly above biggest SUVs
-    vehicle_width = 2.49, -- in meters, ways with narrow tag are considered narrower than 2.2m
+    vehicle_width = 2.45, -- in meters, ways with narrow tag are considered narrower than 2.2m
 
     -- Size of the vehicle, to be limited mostly by legal restriction of the way
     vehicle_length = 7.7, -- in meters, 4.8m is the length of large or family car
