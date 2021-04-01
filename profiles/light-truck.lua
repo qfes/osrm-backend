@@ -70,6 +70,7 @@ function setup()
       'motor_vehicle',
       'vehicle',
       'permissive',
+      'emergency',
       'designated',
       'hov',
       'psv'
@@ -145,14 +146,14 @@ function setup()
         motorway_link   = 45,
         trunk           = 70,
         trunk_link      = 35,
-        primary         = 55,
-        primary_link    = 25,
-        secondary       = 50,
+        primary         = 60,
+        primary_link    = 30,
+        secondary       = 55,
         secondary_link  = 25,
-        tertiary        = 40,
-        tertiary_link   = 20,
+        tertiary        = 50,
+        tertiary_link   = 25,
         unclassified    = 40,
-        residential     = 25,
+        residential     = 40,
         living_street   = 10,
         service         = 15
       }
