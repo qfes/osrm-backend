@@ -1,8 +1,14 @@
 # Unreleased
+
+# 5.25.0
   - Changes from 5.24.0
+    - Build:
+      - CHANGED: Node binaries now use Github Releases for hosting [#6030](https://github.com/Project-OSRM/osrm-backend/pull/6030)
     - Misc:
       - FIXED: Upgrade to @mapbox/node-pre-gyp fix various bugs with Node 12/14 [#5991](https://github.com/Project-OSRM/osrm-backend/pull/5991)
       - FIXED: `valid` type in documentation examples [#5990](https://github.com/Project-OSRM/osrm-backend/issues/5990)
+      - FIXED: Remove redundant loading of .osrm.cell_metrics [#6019](https://github.com/Project-OSRM/osrm-backend/issues/6019)
+      - CHANGED: Increase PackedOSMIDs size to 34 bits. This breaks the **data format** [#6020](https://github.com/Project-OSRM/osrm-backend/issues/6020)
     - Profile:
       - FIXED: Add kerb barrier exception to default car profile. [#5999](https://github.com/Project-OSRM/osrm-backend/pull/5999)
 

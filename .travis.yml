@@ -25,8 +25,6 @@ cache:
 
 env:
   global:
-   - secure: "hk+32aXXF5t1ApaM2Wjqooz3dx1si907L87WRMkO47WlpJmUUU/Ye+MJk9sViH8MdhOcceocVAmdYl5/WFWOIbDWNlBya9QvXDZyIu2KIre/0QyOCTZbrsif8paBXKIO5O/R4OTvIZ8rvWZsadBdmAT9GSbDhih6FzqXAEgeIYQ="
-   - secure: "VE+cFkseFwW4jK6XwkP0yW3h4DixPJ8+Eb3yKcchGZ5iIJxlZ/8i1vKHYxadgPRwSYwPSB14tF70xj2OmiT2keGzZUfphmPXinBaLEhYk+Bde+GZZkoSl5ND109I/LcyNr0nG9dDgtV6pkvFchgchpyP9JnVOOS0+crEZlAz0RE="
    - CCACHE_TEMPDIR=/tmp/.ccache-temp
    - CCACHE_COMPRESS=1
    - CASHER_TIME_OUT=599 # one second less than 10m to avoid 10m timeout error: https://github.com/Project-OSRM/osrm-backend/issues/2742
@@ -173,7 +171,7 @@ matrix:
       # we use the xcode provides clang and don't install our own
       env: ENABLE_MASON=ON BUILD_TYPE='Release' CUCUMBER_TIMEOUT=60000 CCOMPILER='clang' CXXCOMPILER='clang++' ENABLE_ASSERTIONS=ON ENABLE_LTO=ON NODE="10"
       after_success:
-        - ./scripts/travis/publish.sh
+        - ./scripts/travis/node_package.sh
 
     - os: osx
       osx_image: xcode9.2
@@ -181,7 +179,7 @@ matrix:
       # we use the xcode provides clang and don't install our own
       env: ENABLE_MASON=ON BUILD_TYPE='Release' CUCUMBER_TIMEOUT=60000 CCOMPILER='clang' CXXCOMPILER='clang++' ENABLE_ASSERTIONS=ON ENABLE_LTO=ON NODE="12"
       after_success:
-        - ./scripts/travis/publish.sh
+        - ./scripts/travis/node_package.sh
 
     - os: osx
       osx_image: xcode9.2
@@ -189,7 +187,7 @@ matrix:
       # we use the xcode provides clang and don't install our own
       env: ENABLE_MASON=ON BUILD_TYPE='Release' CUCUMBER_TIMEOUT=60000 CCOMPILER='clang' CXXCOMPILER='clang++' ENABLE_ASSERTIONS=ON ENABLE_LTO=ON NODE="14"
       after_success:
-        - ./scripts/travis/publish.sh
+        - ./scripts/travis/node_package.sh
 
     # Shared Library
     - os: linux
@@ -223,7 +221,7 @@ matrix:
       script:
         - npm run nodejs-tests
       after_success:
-        - ./scripts/travis/publish.sh
+        - ./scripts/travis/node_package.sh
 
     - os: linux
       sudo: false
@@ -247,7 +245,7 @@ matrix:
       script:
         - npm run nodejs-tests
       after_success:
-        - ./scripts/travis/publish.sh
+        - ./scripts/travis/node_package.sh
 
     - os: linux
       sudo: false
@@ -271,7 +269,7 @@ matrix:
       script:
         - npm run nodejs-tests
       after_success:
-        - ./scripts/travis/publish.sh
+        - ./scripts/travis/node_package.sh
 
     - os: linux
       sudo: false
@@ -295,7 +293,7 @@ matrix:
       script:
         - npm run nodejs-tests
       after_success:
-        - ./scripts/travis/publish.sh
+        - ./scripts/travis/node_package.sh
 
     - os: linux
       sudo: false
@@ -319,7 +317,7 @@ matrix:
       script:
         - npm run nodejs-tests
       after_success:
-        - ./scripts/travis/publish.sh
+        - ./scripts/travis/node_package.sh
 
     - os: linux
       sudo: false
@@ -343,7 +341,7 @@ matrix:
       script:
         - npm run nodejs-tests
       after_success:
-        - ./scripts/travis/publish.sh
+        - ./scripts/travis/node_package.sh
 
     - os: osx
       stage: optional
@@ -352,7 +350,7 @@ matrix:
       # we use the xcode provides clang and don't install our own
       env: ENABLE_MASON=ON BUILD_TYPE='Release' CUCUMBER_TIMEOUT=60000 CCOMPILER='clang' CXXCOMPILER='clang++' ENABLE_ASSERTIONS=ON ENABLE_LTO=ON NODE="node"
       after_success:
-        - ./scripts/travis/publish.sh
+        - ./scripts/travis/node_package.sh
 
     - os: linux
       sudo: false
@@ -376,7 +374,7 @@ matrix:
       script:
         - npm run nodejs-tests
       after_success:
-        - ./scripts/travis/publish.sh
+        - ./scripts/travis/node_package.sh
 
     - os: linux
       sudo: false
@@ -400,7 +398,7 @@ matrix:
       script:
         - npm run nodejs-tests
       after_success:
-        - ./scripts/travis/publish.sh
+        - ./scripts/travis/node_package.sh
 
     - os: osx
       osx_image: xcode9.2
@@ -408,7 +406,7 @@ matrix:
       # we use the xcode provides clang and don't install our own
       env: ENABLE_MASON=ON BUILD_TYPE='Release' CUCUMBER_TIMEOUT=60000 CCOMPILER='clang' CXXCOMPILER='clang++' ENABLE_ASSERTIONS=ON ENABLE_LTO=ON NODE="--lts"
       after_success:
-        - ./scripts/travis/publish.sh
+        - ./scripts/travis/node_package.sh
 
     - os: linux
       sudo: false
@@ -432,7 +430,7 @@ matrix:
       script:
         - npm run nodejs-tests
       after_success:
-        - ./scripts/travis/publish.sh
+        - ./scripts/travis/node_package.sh
 
     - os: linux
       sudo: false
@@ -456,7 +454,7 @@ matrix:
       script:
         - npm run nodejs-tests
       after_success:
-        - ./scripts/travis/publish.sh
+        - ./scripts/travis/node_package.sh
 
   allow_failures:
     - compiler: "mason-osx-release-node-latest"
@@ -574,3 +572,14 @@ script:
   - |
   - popd
   - npm test
+
+deploy:
+  provider: releases
+  api_key:
+    secure: "Ej7tPd+XhAlBvA0SnYghYakO6QUwUI+oOtjlkPmy0UfKtIQ4bIzoIm1BDbPwrmNiCSKB7lLZYZpKz68PBRtblfqvTjhzXSzlvFk36pyywgkuNY13N3VQZo2c5CShLCy41nx4+uLkjhLfKYOALSE3OivdJJHLZEsSwx60Csx7owU="
+  skip_cleanup: true
+  file_glob: true
+  file: build/stage/**/*.tar.gz
+  on:
+    tags: true
+    condition: "$PUBLISH = 'On'"
